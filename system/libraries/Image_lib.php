@@ -504,7 +504,7 @@ class CI_Image_lib {
 
 		$x = explode('/', $full_source_path);
 		$this->source_image = end($x);
-		$this->source_folder = str_replace($this->source_image, '', $full_source_path);
+		$this->source_folder = implode( array_slice( $x, 0, -1 ), '/') . '/';
 
 		// Set the Image Properties
 		if ( ! $this->get_image_properties($this->source_folder.$this->source_image))
@@ -551,7 +551,7 @@ class CI_Image_lib {
 			{
 				$x = explode('/', $full_dest_path);
 				$this->dest_image = end($x);
-				$this->dest_folder = str_replace($this->dest_image, '', $full_dest_path);
+				$this->dest_folder = implode( array_slice( $x, 0, -1 ), '/') . '/';
 			}
 		}
 
